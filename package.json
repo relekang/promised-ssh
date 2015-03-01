@@ -2,7 +2,7 @@
   "name": "promised-ssh",
   "version": "0.1.0",
   "description": "Promise wrapped ssh2",
-  "main": "index.js",
+  "main": "lib/ssh.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +24,12 @@
   "homepage": "https://github.com/relekang/promised-ssh",
   "dependencies": {
     "bluebird": "^2.9.13",
-    "ssh2": "^0.4.4"
+    "ssh2": "^0.4.4",
+    "utils": "0.0.2"
+  },
+  "devDependencies": {
+    "chai": "^2.1.0",
+    "istanbul": "^0.3.6",
+    "mocha": "^2.1.0"
   }
 }
