@@ -1,0 +1,29 @@
+{
+  "name": "promised-ssh",
+  "version": "0.1.0",
+  "description": "Promise wrapped ssh2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/relekang/promised-ssh.git"
+  },
+  "keywords": [
+    "promise",
+    "ssh",
+    "ssh2",
+    "promises"
+  ],
+  "author": "Rolf Erik Lekang <me@rolflekang.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/relekang/promised-ssh/issues"
+  },
+  "homepage": "https://github.com/relekang/promised-ssh",
+  "dependencies": {
+    "bluebird": "^2.9.13",
+    "ssh2": "^0.4.4"
+  }
+}
