@@ -1,6 +1,11 @@
 # promised-ssh
 Promise wrapped ssh2
 
+## Install
+```
+npm install --save promised-ssh
+```
+
 ## Usage
 #### `.connect(options)`
 Takes a object with options similar to ssh2. This object is passed along
