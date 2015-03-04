@@ -36,6 +36,7 @@
   "devDependencies": {
     "chai": "^2.1.0",
     "istanbul": "^0.3.6",
+    "jshint": "^2.6.3",
     "mocha": "^2.1.0"
   }
 }

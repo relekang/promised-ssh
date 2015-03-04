@@ -1,0 +1,2 @@
+tasks:
+ - node_modules/.bin/jshint
