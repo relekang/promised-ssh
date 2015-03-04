@@ -24,8 +24,7 @@ fs
   .then(function(connection) {
     return connection.exec(['ls -al', 'ls -al /']);
   })
-  .spread(function(return_code, stdout, stderr) {
-    console.log('Returned with return code ' + return_code);
+  .spread(function(stdout, stderr) {
     if (stdout) console.log('STDOUT: ' + stdout);
     if (stderr) console.log('STDERR: ' + stderr);
   })
