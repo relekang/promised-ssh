@@ -1,20 +1,32 @@
+var bluebird = require('bluebird');
+var fs = bluebird.promisifyAll(require('fs'));
+var path = require('path');
 var ssh = require('./lib/ssh');
 
 /*
-Usage example script. Put ssh2 compatible options object as a json dump
-in the environment variable SSH_OPTIONS.
+** Usage example script. This requires a private key without password in ~/.ssh/test_key.
+** Put hostname in the environment variabl HOST and user in USER.
+**
+** Example usage:
+**  $ USER=rolf HOST=rolflekang.com node t.js
 */
 
-ssh
-  .connect(JSON.parse(process.env.SSH_OPTIONS))
-  .then(function (connection) {
-    return connection.execCommand('ls -al');
+fs
+  .readFileAsync(path.join(process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE, '.ssh/test_key'))
+  .then(function(key) {
+    return ssh.connect({
+      host: process.env.HOST,
+      username: process.env.USER,
+      privateKey: key,
+      debug: true
+    });
   })
-  .spread(function (return_code, stdout, stderr) {
+  .then(function(connection) {
+    return connection.exec(['ls -al', 'ls -al /']);
+  })
+  .spread(function(return_code, stdout, stderr) {
     console.log('Returned with return code ' + return_code);
     if (stdout) console.log('STDOUT: ' + stdout);
     if (stderr) console.log('STDERR: ' + stderr);
   })
-  .catch(function error(error) {
-    throw error;
-  });
+  .catch(console.error);
