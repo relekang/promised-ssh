@@ -2,11 +2,44 @@
 Promise wrapped ssh2
 
 ## Usage
-### `.connect(options)`
+#### `.connect(options)`
 Takes a object with options similar to ssh2. This object is passed along
 to ssh2 connect. It returns a promise of an `Connection`.
 
-### `Connection.exec(list_of_commands)`
+#### `.connectMock(options)`
+Returns a `MockConnection` which behaves similarly to `Connection` except
+it never tries to connect anywhere and the outcome of commands and the mocked
+connection is determined by mock-options which can be set with `.setMockOptions`.
+
+#### `.setMockOptions(options)`
+Sets the options used to determine the outcome of `MockConnection.connect` and
+`MockConnection.exec`. It takes an object with options. The possible options are:
+
+* `failConnect` (boolean) - Tells whether `MockConnection.connect` should fail or not.
+  Default is `false. If this is true it will throw an `ConnectionError` which is
+  exposed under errors.
+* `commands` (object) - An object with information about return code, stdout and
+  stderr that a command should give. All three options is optional and have the
+  following defaults: code=0, stdout='', stderr=''. The default for the option
+  is `{}`
+
+Example
+```javascript
+ssh.setMockOptions({
+  commands: {
+    'cd project && make': {
+      stdout: 'make: Nothing to be done for `all`.'
+    }
+  }
+})
+```
+
+### Connection
+#### `Connection.connect()`
+Returns a promise that resolves a `Connection`-object when ssh2 opens a connection.
+`this.options` is used as connect options in ssh2.
+
+#### `Connection.exec(list_of_commands)`
 Takes a list of commands to run on the current connection. After the commands
 have been runned the connection will be closed. It returns a promise of an array:
 `[stdout, stderr]`.
