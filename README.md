@@ -16,7 +16,7 @@ Sets the options used to determine the outcome of `MockConnection.connect` and
 `MockConnection.exec`. It takes an object with options. The possible options are:
 
 * `failConnect` (boolean) - Tells whether `MockConnection.connect` should fail or not.
-  Default is `false. If this is true it will throw an `ConnectionError` which is
+  Default is `false`. If this is true it will throw an `ConnectionError` which is
   exposed under errors.
 * `commands` (object) - An object with information about return code, stdout and
   stderr that a command should give. All three options is optional and have the
