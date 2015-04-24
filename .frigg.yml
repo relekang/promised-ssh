@@ -1,3 +1,5 @@
 tasks:
  - npm install
  - node_modules/.bin/jshint lib t.js
+ - node_modules/.bin/jscs lib t.js
+
