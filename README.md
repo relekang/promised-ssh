@@ -27,6 +27,8 @@ Sets the options used to determine the outcome of `MockConnection.connect` and
   stderr that a command should give. All three options is optional and have the
   following defaults: code=0, stdout='', stderr=''. The default for the option
   is `{}`
+* `throwIfMockNotDefined` (boolean) - Throw an error if exec is called
+  on a command that doesn't have a mock output defined
 
 Example
 ```javascript
@@ -38,6 +40,11 @@ ssh.setMockOptions({
   }
 })
 ```
+
+#### `.setOfflineMode(true)`
+Will prevent any real connections from being made, causing an error to
+be throwin instead. Useful when in test mode to make sure tests don't
+trigger connections to remote servers.
 
 ### Connection
 #### `Connection.connect()`
