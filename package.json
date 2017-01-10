@@ -1,6 +1,6 @@
 {
   "name": "promised-ssh",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Promise wrapped ssh2",
   "main": "lib/ssh.js",
   "scripts": {
@@ -28,8 +28,8 @@
   },
   "homepage": "https://github.com/relekang/promised-ssh",
   "dependencies": {
-    "bluebird": "^2.9.13",
-    "ssh2": "^0.4.4",
+    "bluebird": "^3.4.7",
+    "ssh2": "^0.5.4",
     "util": "^0.10.3",
     "utils": "0.0.2"
   },
