@@ -1,6 +1,6 @@
 {
   "name": "promised-ssh",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Promise wrapped ssh2",
   "main": "lib/ssh.js",
   "scripts": {
